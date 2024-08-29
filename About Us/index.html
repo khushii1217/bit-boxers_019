@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Social Media Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>About Us</h1>
+            <p>Your partner in harnessing the power of social media</p>
+        </header>
+
+        <section class="section">
+            <img src="images/mission.jpg" alt="Our Mission" class="fade-in-left">
+            <div class="text slide-in-right">
+                <h2>Our Mission</h2>
+                <p>Empowering businesses with deep insights into their social media presence, enabling data-driven decisions that drive growth and engagement.</p>
+                <a href="#learn-more" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="text slide-in-left">
+                <h2>Our Vision</h2>
+                <p>We envision a world where businesses of all sizes can leverage social media analytics to stay ahead of the competition and connect with their audience more effectively.</p>
+                <a href="#contact-us" class="btn">Contact Us</a>
+            </div>
+            <img src="images/vision.jpg" alt="Our Vision" class="fade-in-right">
+        </section>
+
+        <section class="section">
+            <img src="images/team.jpg" alt="Our Team" class="fade-in-left">
+            <div class="text slide-in-right">
+                <h2>Our Team</h2>
+                <p>We are a group of passionate data scientists, social media experts, and tech enthusiasts dedicated to providing the best analytics tools in the industry.</p>
+                <a href="#join-us" class="btn">Join Us</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 Social Media Analytics. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll-triggered animations
+        window.addEventListener('scroll', function() {
+            const fadeInLeftElements = document.querySelectorAll('.fade-in-left');
+            const fadeInRightElements = document.querySelectorAll('.fade-in-right');
+            const slideInLeftElements = document.querySelectorAll('.slide-in-left');
+            const slideInRightElements = document.querySelectorAll('.slide-in-right');
+
+            fadeInLeftElements.forEach(function(element) {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition && position > 0) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+
+            fadeInRightElements.forEach(function(element) {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition && position > 0) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+
+            slideInLeftElements.forEach(function(element) {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition && position > 0) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+
+            slideInRightElements.forEach(function(element) {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition && position > 0) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
