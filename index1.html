@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #f0f0f0, #dcdcdc);
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #4285F4;
+        }
+
+        .login-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #357AE8;
+        }
+
+        .comment {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <p>Sign in with your Gmail credentials</p>
+
+        <!-- Email input field with comment -->
+        <input type="email" id="email" class="input-field" placeholder="Email" required>
+        <div class="comment">Email - admin@gmail.com</div>
+
+        <!-- Password input field with comment -->
+        <input type="password" id="password" class="input-field" placeholder="Password" required>
+        <div class="comment">Password - admin</div>
+
+        <!-- Sign-in button -->
+        <button class="login-btn" onclick="login()">Sign in</button>
+    </div>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Simulate validation
+            if (email === "admin@gmail.com" && password === "admin") {
+                alert("Login successful!");
+                window.location.href = 'index.html'; // Redirect to your dashboard page
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+
+</html>
