@@ -1,0 +1,55 @@
+/* styles.css */
+
+/* General styles */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar styles */
+#sidebar {
+    transition: transform 0.3s ease;
+    margin-top: 4rem; /* Adjust sidebar to start below the navbar */
+}
+
+/* Hidden sidebar for mobile */
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+/* Sidebar links */
+#sidebar a {
+    font-size: 1rem;
+    padding-left: 1.25rem;
+}
+
+#sidebar a:hover {
+    background-color: #374151;
+    color: #9ca3af;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-in-out;
+}
+
+.animate-slide-in-left {
+    animation: slide-in-left 1s ease-in-out;
+}
