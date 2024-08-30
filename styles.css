@@ -1,0 +1,128 @@
+
+
+/* Custom CSS Styles */
+
+
+/* Custom CSS for the active link */
+.active-link {
+    background-color: white; /* Customize the active background color */
+    color: black; /* Customize the active text color */
+}
+.login{
+    border: 1.5px solid rgb(17, 24, 40);
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: rgb(17, 24, 40) ;
+    transition: .15s ease-in-out;
+}
+.login:hover{
+    background-color: rgb(17, 24, 40);
+    color: wheat;
+    transform: scale(1.15);
+}
+.img-hover{
+    transition: .15s ease-in-out;
+}
+.img-hover:hover{
+    transform: scale(1.35);
+
+}
+.slide-left{
+    animation: slide-left 1s ease-in forwards;
+}
+.card-container div{
+    transition: .25s ease-in-out;
+}
+.card-container div:hover{
+    transform: scale(1.15);
+    background-color: rgb(44, 43, 43);
+    z-index: 100;
+}
+ .card-container div:hover > p:nth-of-type(1){
+    color: white;
+}
+.card-container div:hover > h2{
+    color: wheat;
+}
+@keyframes slide-left {
+    0%{
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+.active-link i {
+    color: white; /* Customize the icon color */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-in-out;
+}
+
+.animate-slide-in-left {
+    animation: slide-in-left 1s ease-in-out;
+}
+
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* footer style  */
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111828;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    margin-left: -100px;
+    width: 125%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons .icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+    transform: scale(1.2);
+    color: #00bfa5;
+}

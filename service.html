@@ -8,51 +8,515 @@
     <meta name="keyworlds" content="html css js and others" />
     <meta name="author" content="Manoj Rawat"></meta>
     <title>Service Page</title>
+    <!-- service page style -->
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Work+Sans:wght@400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* resuable code */
+
+:root{
+    --heading:rgb(0 10 45);
+    --para:#777 ;       /* #777777 */
+    --para-tint:#e4e4e4;
+    --white:#fff;
+    --black:#212529;
+    --helper:#8490ff;
+    --overlay:#3e64ff;
+    --helper-tint:#f3f4ff;
+    --bg:rgb(249 249 255);
+    --icons-bg:rgba(144, 172, 209, 0.2);
+    --gradient: linear-gradient(0deg,rgb(132 144 255) 0%, rgb(98,189,252) 100%);
+    --gradientSupport: -webkit-linear-gradient(
+        0deg,
+        rgb(132 144 255) 0%,
+        rgb(98 189 252) 100%
+    );
+    --shadow:0px 0px 20px 0px rgb(132 144 255 / 20%);
+    --shadowSupport:0px 20px 20px 0px rgb(132 144 255 / 30%);
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    color: var(--heading);
+    font-size:6rem;
+    font-weight:600; 
+}
+
+h3{
+    font-size:1.8rem;
+    font-weight:400;
+    font-size:1.7rem;
+}
+
+p{
+    color:var(--para);
+    line-height:1.6rem;
+    font-size:1.7rem;
+    text-align: start;
+}
+
+a{
+    text-decoration:none;
+}
+
+li{
+    list-style:none;
+}
+
+/* resuable code */
+/* hero */
+.section{
+    padding:16rem 6rem 16rem 0;
+    position: relative;
+}
+
+.grid{
+    display:grid;
+    gap:8rem; 
+}
+
+.grid-two-column{
+    grid-template-columns:repeat(2, 1fr);  /* grid-template-columns:1fr 1fr; */
+}
+
+.btn{
+    background: var(--gradientSupport);
+    color:var(--helper-tint);
+    padding:1.6rem 3.2rem;
+    border:none;
+    display:inline-block;
+    text-transform:uppercase;
+    font-size:1.8rem;
+    font-weight:500;
+    cursor:pointer;
+    transition:all .3s ease;
+
+    -webkit-transition:all .3s ease 0s ;
+    -moz-transition:all .3s ease 0s ;
+    -o-transition:all .3s ease 0s;
+}
+
+.btn:hover, .btn:active{
+    box-shadow:var(--shadowSupport);
+}
+
+.container{
+    max-width:111rem;  
+    margin:0 auto;
+}
+
+.container > p{
+  text-align: start !important;
+}
+
+/* bio-data */
+.common-heading{
+    font-size:4.8rem;
+    font-weight:600;
+    margin-bottom:6rem;
+    text-transform:capitalize;
+    position:relative;
+}
+
+.common-heading::before{
+    content:'';
+    position:absolute;
+    top:110%;
+    left:0;
+    width:1.5rem;
+    height:1.5rem;
+    border-radius:50%;
+    background:var(--helper);
+}
+
+.common-heading::after{
+    content:'';
+    position:absolute;
+    top:117%;
+    left: 1.5rem;
+    min-width:20rem;
+    height:0.3rem;
+    background:var(--helper)
+}
+/* portfoili                       -- imp for constract project */
+.grid-three-column{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.grid-four-column{
+    grid-template-columns:repeat(4,1fr);
+}
+/* our services section start */
+
+.section-services{
+    transition:all 0.7s linear;
+    margin-left: 16rem;
+    margin-top: 0;
+    padding-top: 8rem;
+}
+
+.section-services p{
+    max-width:60rem;
+    text-align: center;
+}
+
+.section-services .grid{
+    margin-top:10rem;
+    row-gap:10rem;
+}
+
+.service-box{
+     text-align:center;
+     box-shadow:var(--shadow);
+     border-radius:5px;
+     padding:3.4rem 3.4rem;
+     transition:all 0.2s linear;
+     cursor: pointer;
+}
+
+.service-box:hover, .service-box:active{
+    transform:translateY(-3rem);
+}
+
+.service-icon{
+    width:8rem;
+    height:8rem;
+    background-color:var(--icons-bg);
+    display:inline-flex;
+    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+    padding:1.4rem 1.8rem;
+    position:relative;
+    color:var(--heading);
+    animation:water-wave 3s linear infinite;    
+    cursor: pointer;
+}
+
+.service-icon::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    height:90%;
+    width:90%;
+    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+    background-color:transparent;
+    border:1px solid var(--black);
+    animation:water-wave 3s linear infinite;
+}
+
+@keyframes water-wave{
+    0%{
+        border-radius:56% 44% 70% 30% / 30% 54% 46% 70%;
+    }
+    50%{
+        border-radius:3% 97% 15% 85% / 72% 0% 100% 28%;
+    }
+    100%{
+        border-radius:56% 44% 70% 30% / 30% 54% 46% 70%;
+    }
+}
+
+.service-box h3{
+    text-transform:capitalize;
+    margin-top:3rem;
+    margin-bottom: 1rem;
+
+}
+
+
+
+  /* contact us */
+
+  .section-contact-main{
+      max-width:70rem;
+    margin:0 auto;
+    margin-top:9rem;
+    transition:all 0.3s linear;
+  }
+
+  .section-contact-main .grid{
+    gap:3.2rem;
+  }
+
+  .section-contact-main form{
+    display: flex;
+    flex-direction: column;
+    gap:3.2rem;
+  }
+
+  .section-contact-main input, .section-contact-main textarea{
+    padding:1.5rem 2rem;
+    border:0.1rem solid #c9c9c9;
+    border-radius:5px;
+    font-size:1.6rem;
+    font-family: "Work Sans";
+    width:100%;
+  }
+
+  .section-contact-main input[type="submit"]{
+    max-Width:30%;
+    border:none;
+  }
+
+  /* footer */
+
+
+
+  /* media query  */
+
+  @media (max-width:75em){  /* 1200  */
+    .container{
+        max-width:100rem;
+        padding:0 3.2rem;
+    }
+
+    .navbar-lists{
+        gap:3.2rem;
+    }
+  }
+
+  @media (max-width:66em){  /* 1050  */
+      html{
+        font-size:56.25%;
+      }
+
+      .container{
+        max-width:95rem;
+      }
+
+      .grid{
+        gap:6.8rem;
+      }
+  }
+
+  @media (max-width:58em){   /* 940 */
+    html{
+        font-size:48%;
+    }
+
+    .section-hero h1{
+        line-height:1.05;
+    }
+
+    .section-services .grid-three-column{
+        grid-template-columns:repeat(2, 1fr)
+    }
+
+    .section-services .grid{
+        gap:6rem;
+    }
+
+    .section-footer .grid-four-column{
+        grid-template-columns:1fr 1fr;
+        text-align:center;
+    }
+  }
+
+   @media (max-width:49em){      /*  768px */
+     .container{
+        max-width:80rem;
+     }
+     .section-services{
+    margin-left: 4rem;
+}
+     .section{
+    padding:10rem 0;}
+
+     .img-overlay .common-heading{
+        font-size:2.2rem;
+    }
+
+     .section-hero .grid-two-column{
+        grid-template-columns:1fr;
+     }
+
+     .section-hero-data{
+        align-items: center;
+     }
+
+     .hero-para{
+        text-align:center;
+        margin-top:2rem;
+     }
+
+     .section-hero-image img{
+        width:75%;
+     }
+
+     .section-biodata .grid-two-column{
+        grid-template-columns:1fr;
+     }
+
+     .section-biodata .bio-image{
+        /* grid-row-start:2; */
+        /* grid-row-end:3; */   /* same upper code */
+        grid-row: 2/3;  /*  we can right only 2 */
+        margin-top:3.2rem;
+     }
+
+     .bio-image img{
+        width:50%;
+     }
+
+     .section-portfolio .grid-three-column{
+        grid-template-columns:repeat(2,1fr);
+     }
+
+     .section-work-data .grid-four-column{
+        grid-template-columns:repeat(2,1fr);
+     }
+   }
+
+   @media (max-width:35em){
+    .footer{
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
+    .section-hero-data{
+        text-align: center;
+    }
+
+    .p-btns{
+        gap:2.8rem;
+    }
+
+    .p-btn{
+        padding:1rem 2rem;
+    }
+
+    .section-services .grid-three-column{
+        grid-template-columns:1fr;
+    }
+
+    .section-freelancing h2{
+        font-size:3.5rem;
+    }
+
+    .contact-container .grid-two-column{
+        grid-template-columns:1fr;
+    }
+
+    .section-contact-main input[type='submit']{
+        max-width:50%;
+    }
+
+    .contact-container{
+        padding:0 3.2rem;
+    }
+
+    .section-footer .f-about, .section-footer .f-address{
+        grid-column:1/-1;
+    }
+   }
+
+     </style>
+        <!-- Tailwind CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <!-- External CSS -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- FontAwesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="./css/style.css" />
 
   </head>
-  <body>
+  <body class="bg-gray-100 font-sans antialiased">
     <!-- Starting Header Section -->
 
-    <header class="header">
-        <h1 style="color: gray; font-size: 30px;">Dashboard</h1>
-
-      <nav class="navbar">
-        <ul class="navbar-lists">
-          <li><a href="/index.html" class="navbar-link home-link">Home</a></li>
-          <li>
-            <a href="/about.html" class="navbar-link about-link">About</a>
-          </li>
-          <li>
-            <a href="/service.html" class="navbar-link service-link"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a href="/portfolio.html" class="navbar-link portfolio-link"
-              >Portfolio</a
-            >
-          </li>
-          <li>
-            <a href="/contact.html" class="navbar-link contact-link">Contact</a>
-          </li>
-        </ul>
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed w-full z-20 top-0 left-0">
+          <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                  <button onclick="toggleSidebar()" class="focus:outline-none md:hidden">
+                      <i class="fas fa-bars text-2xl"></i>
+                  </button>
+                  <a href="#" class="text-xl font-bold text-gray-900">SOMEAN</a>
+                   <!-- <img src="2.png" alt="" width="80px" height="80px" style="margin-top: 0;"> -->
+              </div>
+              <div class="hidden md:flex items-center space-x-4">
+                  <input type="text" placeholder="Search"
+                      class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                  <button class="focus:outline-none">
+                      <i class="fas fa-search text-gray-600 img-hover"></i>
+                  </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                  <a href="login.html" class="text-gray-600 hover:text-gray-900 login">Login</a>
+                  <button class="focus:outline-none">
+                      <i class="fas fa-bell text-gray-600 text-xl img-hover"></i>
+                  </button>
+                  <button class="focus:outline-none">
+                      <i class="fas fa-user-circle text-gray-600 text-2xl img-hover"></i>
+                  </button>
+              </div>
+          </div>
       </nav>
-      <div class="mobile-navbar-btn">
-        <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-        <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-      </div>
-    </header>
+  
+      <!-- Sidebar -->
+      <div class="flex ">
+          <div id="sidebar"
+              class=" flex fixed justify-between flex-col inset-y-0 left-0 z-20 w-64 bg-gray-900 text-white transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out mt-16 md:w-48">
+              <div class="pt-4">
+                  <a href="index.html" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 bg-gray-700 active-link transition duration-200">
+                      <i class="fas fa-home"></i>
+                      <span>Dashboard</span>
+                  </a>
+                  
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Analytics</span>
+                  </a>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-file-alt"></i>
+                      <span>Reports</span>
+                  </a>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-comments"></i>
+                      <span>Forum</span>
+                  </a>
+              </div>
+              <div>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-cog"></i>
+                      <span>Settings</span>
+                  </a>
+                  
+              </div>
+          </div>
+  
+
 
     <!-- out services starting -->
 
     <section class="section section-services">
       <div class="container">
-        <h2 class="common-heading">Services Offers</h2>
+        <h2 class="common-heading">Services We Offers</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
-          dignissimos. Dolorum quia quo harum repellat?
+          At [ SOMEAN ], we offer a comprehensive suite of creative and technical services to elevate your brand and engage your audience. and if you want to use our services you can choose from below and become a part of SEMON family, We will support you at our best;
         </p>
       </div>
 
@@ -63,8 +527,7 @@
           <ion-icon name="desktop-sharp" class="service-icon"></ion-icon>
           <h3>Web Design</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            We craft visually appealing, user-friendly websites that provide a seamless experience, ensuring your online presence stands out.
           </p>
         </div>
 
@@ -72,8 +535,7 @@
           <ion-icon name="logo-react" class="service-icon"></ion-icon>
           <h3>Web Development</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            Our web development services ensure your site is optimized for performance, security, and scalability, giving you a powerful online presence.
           </p>
         </div>
 
@@ -81,8 +543,7 @@
           <ion-icon name="camera-outline" class="service-icon"></ion-icon>
           <h3>Photography</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            Our professional photography services capture the essence of your brand and events, delivering high-quality images that resonate with your audience.
           </p>
         </div>
 
@@ -90,8 +551,7 @@
           <ion-icon name="phone-portrait-sharp" class="service-icon"></ion-icon>
           <h3>Mobile Apps</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            We turn ideas into dynamic mobile applications, creating intuitive and high-performing apps that cater to your business needs across all devices.
           </p>
         </div>
 
@@ -99,8 +559,7 @@
           <ion-icon name="globe-outline" class="service-icon"></ion-icon>
           <h3>Apps Interface</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            In app interface, we focus on creating designs that leave a lasting impression and enhance user experience.
           </p>
         </div>
 
@@ -108,21 +567,34 @@
           <ion-icon name="image-sharp" class="service-icon"></ion-icon>
           <h3>Graphic Design</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            ea in ut ad modi architecto sequi inventore sint velit totam!
+            Our design team brings your brand to life through striking visuals and engaging interfaces. Whether it's a logo, marketing material,
           </p>
         </div>
       </div>
+      <!-- footer -->
+      <footer class="footer">
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 Social Media Analytics. All Rights Reserved.</p>
+    </footer>
     </section>
 
-    <!-- footer -->
 
 
   </body>
 
+<!-- for services -->
   <script
   type="module"
   src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-></script>
+  ></script>
+
+  <!-- for dashboard -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.0/dist/chart.min.js"></script>
+  <script src="scripts.js"></script>
 
 </html>

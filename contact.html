@@ -1,39 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple portfolio Website">
-    <meta name="keyworlds" content="html css js and others">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple part of  Dashboard Page" />
+    <meta name="keyworlds" content="html css js and others" />
     <meta name="author" content="Manoj Rawat"></meta>
     <title>Contact Page</title>
+    <!-- service page style -->
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Work+Sans:wght@400;500&display=swap');
 
-    <link rel="stylesheet" href="./css/style.css">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Work Sans', sans-serif;
+}
 
-</head>
-<body>
+/* resuable code */
 
-     <!-- Starting Header Section -->
+:root{
+    --heading:rgb(0 10 45);
+    --para:#777 ;       /* #777777 */
+    --para-tint:#e4e4e4;
+    --white:#fff;
+    --black:#212529;
+    --helper:#8490ff;
+    --overlay:#3e64ff;
+    --helper-tint:#f3f4ff;
+    --bg:rgb(249 249 255);
+    --icons-bg:rgba(144, 172, 209, 0.2);
+    --gradient: linear-gradient(0deg,rgb(132 144 255) 0%, rgb(98,189,252) 100%);
+    --gradientSupport: -webkit-linear-gradient(
+        0deg,
+        rgb(132 144 255) 0%,
+        rgb(98 189 252) 100%
+    );
+    --shadow:0px 0px 20px 0px rgb(132 144 255 / 20%);
+    --shadowSupport:0px 20px 20px 0px rgb(132 144 255 / 30%);
+}
 
-     <header class="header">
-        <h1 style="color: gray; font-size: 30px;">Dashboard</h1>
-        <nav class="navbar">
-            <ul class="navbar-lists">
-                <li> <a href="/index.html" class="navbar-link home-link">Home</a> </li>
-                <li> <a href="/about.html" class="navbar-link about-link">About</a> </li>
-                <li> <a href="/service.html" class="navbar-link service-link">Services</a> </li>
-                <li> <a href="/portfolio.html" class="navbar-link portfolio-link">Portfolio</a> </li>
-                <li> <a href="/contact.html" class="navbar-link contact-link">Contact</a> </li>
-            </ul>
-        </nav>
-        <div class="mobile-navbar-btn">
-            <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-            <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-        </div>
-    </header>
+html{
+    overflow-x:hidden;
+}
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29013963.864801917!2d64.69761801624247!3d27.41492633347069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1682179743293!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+body{
+    overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    color: var(--heading);
+    font-size:6rem;
+    font-weight:600; 
+}
+
+h3{
+    font-size:1.8rem;
+    font-weight:400;
+    font-size:1.7rem;
+}
+
+p{
+    color:var(--para);
+    line-height:1.6rem;
+    font-size:1.7rem;
+    text-align: start;
+}
+
+a{
+    text-decoration:none;
+}
+
+li{
+    list-style:none;
+}
+
+/* resuable code */
+/* hero */
+.section{
+    padding:16rem 6rem 16rem 0;
+    position: relative;
+}
+
+.grid{
+    display:grid;
+    gap:8rem; 
+}
+
+.grid-two-column{
+    grid-template-columns:repeat(2, 1fr);  /* grid-template-columns:1fr 1fr; */
+}
+
+.btn{
+    background: var(--gradientSupport);
+    color:var(--helper-tint);
+    border:none;
+    display:inline-block;
+    text-transform:uppercase;
+    font-size:1.8rem;
+    font-weight:500;
+    cursor:pointer;
+    transition:all .3s ease;
+
+    -webkit-transition:all .3s ease 0s ;
+    -moz-transition:all .3s ease 0s ;
+    -o-transition:all .3s ease 0s;
+}
+
+.btn:hover, .btn:active{
+    box-shadow:var(--shadowSupport);
+}
+
+.container{
+    max-width:111rem;  
+    margin:0 auto;
+}
+
+.container > p{
+  text-align: start !important;
+}
+
+/* bio-data */
+.common-heading{
+    font-size:4.8rem;
+    font-weight:600;
+    margin-bottom:6rem;
+    text-transform:capitalize;
+    position:relative;
+}
+
+.common-heading::before{
+    content:'';
+    position:absolute;
+    top:110%;
+    left:0;
+    width:1.5rem;
+    height:1.5rem;
+    border-radius:50%;
+    background:var(--helper);
+}
+
+.common-heading::after{
+    content:'';
+    position:absolute;
+    top:117%;
+    left: 1.5rem;
+    min-width:20rem;
+    height:0.3rem;
+    background:var(--helper)
+}
+/*                    -- imp for constract project */
+.grid-three-column{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.grid-four-column{
+    grid-template-columns:repeat(4,1fr);
+}
+
+  /* contact us */
+
+  .section-contact{
+    width: 60rem;
+    padding: 18rem 0 10rem 18rem;
+    margin: 0;
+    padding-top: 8rem;
+  }
+
+  .section-contact-main{
+    max-width:60rem;
+    margin:0 auto;
+    margin-top:4rem;
+    transition:all 0.3s linear;
+  }
+
+  .section-contact-main .grid{
+    gap:3.2rem;
+  }
+
+  .section-contact-main form{
+    display: flex;
+    flex-direction: column;
+    gap:3.2rem;
+  }
+
+  .section-contact-main input, .section-contact-main textarea{
+    padding:1.5rem 2rem;
+    border:0.1rem solid #c9c9c9;
+    border-radius:10px;
+    font-size:1.6rem;
+    font-family: "Work Sans";
+    width:100%;
+    color: gray;
+    outline: none;
+  }
+
+  .section-contact-main input[type="submit"]{
+    max-Width:25%;
+    border:none;
+  }
+
+  /* footer */
+
+
+
+  /* media query  */
+
+  @media (max-width:75em){  /* 1200  */
+    .container{
+        max-width:100rem;
+        padding:0 3.2rem;
+    }
+
+    .navbar-lists{
+        gap:3.2rem;
+    }
+  }
+
+  @media (max-width:66em){  /* 1050  */
+
+      html{
+        font-size:56.25%;
+      }
+
+      .container{
+        max-width:95rem;
+      }
+
+      .grid{
+        gap:6.8rem;
+      }
+      .section-contact{
+        width: 60rem;
+      }
+      .section-contact-main{
+        width: 60rem;
+      }
+  }
+
+  @media (max-width:58em){   /* 940 */
+    html{
+        font-size:48%;
+    }
+
+    .section-hero h1{
+        line-height:1.05;
+    }
+
+    .section-services .grid-three-column{
+        grid-template-columns:repeat(2, 1fr)
+    }
+
+    .section-services .grid{
+        gap:6rem;
+    }
+
+    .section-footer .grid-four-column{
+        grid-template-columns:1fr 1fr;
+        text-align:center;
+    }
+  }
+
+   @media (max-width:49em){      /*  768px */
+    .section-contact{
+    width: 80vw;
+    margin-left:12rem;
+}
+     .container{
+        max-width:80rem;
+     }
+     .section-services{
+    margin-left: 4rem;
+}
+     .section{
+    padding:10rem 0;}
+
+     .img-overlay .common-heading{
+        font-size:2.2rem;
+    }
+
+     .section-hero .grid-two-column{
+        grid-template-columns:1fr;
+     }
+
+     .section-hero-data{
+        align-items: center;
+     }
+
+     .hero-para{
+        text-align:center;
+        margin-top:2rem;
+     }
+
+     .section-hero-image img{
+        width:75%;
+     }
+
+     .section-biodata .grid-two-column{
+        grid-template-columns:1fr;
+     }
+
+     .section-biodata .bio-image{
+        /* grid-row-start:2; */
+        /* grid-row-end:3; */   /* same upper code */
+        grid-row: 2/3;  /*  we can right only 2 */
+        margin-top:3.2rem;
+     }
+
+     .bio-image img{
+        width:50%;
+     }
+
+     .section-portfolio .grid-three-column{
+        grid-template-columns:repeat(2,1fr);
+     }
+
+     .section-work-data .grid-four-column{
+        grid-template-columns:repeat(2,1fr);
+     }
+   }
+
+   @media (max-width:35em){
+
+    .footer{
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
+    .section-contact-main input, .section-contact-main textarea{
+        width: 75%;
+    }
+
+    .section-contact{
+        margin: 0;
+    }
+
+    .section-hero-data{
+        text-align: center;
+    }
+
+    .p-btns{
+        gap:2.8rem;
+    }
+
+    .p-btn{
+        padding:1rem 2rem;
+    }
+
+    .section-services .grid-three-column{
+        grid-template-columns:1fr;
+    }
+
+    .section-freelancing h2{
+        font-size:3.5rem;
+    }
+
+    .contact-container .grid-two-column{
+        grid-template-columns:1fr;
+    }
+
+    .section-contact-main input[type='submit']{
+        max-width:50%;
+    }
+
+    .contact-container{
+        padding:0 3.2rem;
+    }
+
+    .section-footer .f-about, .section-footer .f-address{
+        grid-column:1/-1;
+    }
+
+   }
+
+     </style>
+        <!-- Tailwind CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <!-- External CSS -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- FontAwesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body class="bg-gray-100 font-sans antialiased">
+    <!-- Starting Header Section -->
+
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed w-full z-20 top-0 left-0">
+          <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+              <div class="flex items-center space-x-4">
+                  <button onclick="toggleSidebar()" class="focus:outline-none md:hidden">
+                      <i class="fas fa-bars text-2xl"></i>
+                  </button>
+                  <a href="#" class="text-xl font-bold text-gray-900">SOMEAN</a>
+                   <!-- <img src="2.png" alt="" width="80px" height="80px" style="margin-top: 0;"> -->
+              </div>
+              <div class="hidden md:flex items-center space-x-4">
+                  <input type="text" placeholder="Search"
+                      class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                  <button class="focus:outline-none">
+                      <i class="fas fa-search text-gray-600 img-hover"></i>
+                  </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                  <a href="login.html" class="text-gray-600 hover:text-gray-900 login">Login</a>
+                  <button class="focus:outline-none">
+                      <i class="fas fa-bell text-gray-600 text-xl img-hover"></i>
+                  </button>
+                  <button class="focus:outline-none">
+                      <i class="fas fa-user-circle text-gray-600 text-2xl img-hover"></i>
+                  </button>
+              </div>
+          </div>
+      </nav>
+  
+      <!-- Sidebar -->
+      <div class="flex ">
+          <div id="sidebar"
+              class=" flex fixed justify-between flex-col inset-y-0 left-0 z-20 w-64 bg-gray-900 text-white transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out mt-16 md:w-48">
+              <div class="pt-4">
+                  <a href="index.html" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 bg-gray-700 active-link transition duration-200">
+                      <i class="fas fa-home"></i>
+                      <span>Dashboard</span>
+                  </a>
+                  
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Analytics</span>
+                  </a>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-file-alt"></i>
+                      <span>Reports</span>
+                  </a>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-comments"></i>
+                      <span>Forum</span>
+                  </a>
+              </div>
+              <div>
+                  <a href="#"
+                      class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                      <i class="fas fa-cog"></i>
+                      <span>Settings</span>
+                  </a>
+                  
+              </div>
+          </div>
+  
 
     <!-- contact us -->
 
@@ -52,28 +476,35 @@
                 </div>
                 <div>
                     <label for="email"></label>
-                    <input type="email" name="email" id="email" placeholder="demo@gmail.com" autocomplete="off" required />
+                    <input type="email" name="email" id="email" placeholder="Demo@gmail.com" autocomplete="off" required />
                 </div>
             </div>
 
             <div>
                 <label for="subject"></label>
-                <input type="text" name="subject" placeholder="subject" id="subject" autocomplete="off" required>
+                <input type="text" name="subject" placeholder="Subject" id="subject" autocomplete="off" required>
             </div>
             <div>
                 <label for="textarea"></label>
-                <textarea name="textarea" id="textarea" cols="30" rows="10" autocomplete="off"  placeholder="any message" required minlength="5"></textarea>
+                <textarea name="textarea" id="textarea" cols="30" rows="5" autocomplete="off"  placeholder="Any Message" required minlength="5"></textarea>
             </div>
             
             <div>
-                <input type="submit" name="submit"  id="submit" class="btn" value="Send Message"/>
+                <input type="submit" name="submit"  id="submit" class="btn" value="Send"/>
             </div>
         </form>
     </div>
 
 </section>
 
-<!-- footer -->
-
 </body>
+<!-- for services -->
+<script
+type="module"
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+
+<!-- for dashboard -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.0/dist/chart.min.js"></script>
+<script src="scripts.js"></script>
 </html>
