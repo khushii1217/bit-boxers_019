@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Social Media Analytics Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Material Icons for Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        /* Inline CSS for additional styling */
+        body {
+            background-color: #f9fafb;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            height: 300px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .top-posts .details {
+            margin-left: 1rem;
+        }
+
+        .top-posts .post-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .top-posts .post-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-posts .material-icons {
+            font-size: 64px;
+            color: #4CAF50;
+        }
+
+        /* Styling for additional charts */
+        .additional-charts .chart-container {
+            height: 350px;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-20 top-0 left-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleSidebar()" class="focus:outline-none md:hidden">
+                    <i class="material-icons text-2xl">menu</i>
+                </button>
+                <a href="index.html" class="text-xl font-bold text-gray-900">MEDIA-HUB</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <input type="text" placeholder="Search"
+                    class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                <button class="focus:outline-none">
+                    <i class="material-icons text-gray-600">search</i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="forum.html" class="text-gray-600 hover:text-gray-900">Back to Forum</a>
+                <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+                <button class="focus:outline-none">
+                    <i class="material-icons text-gray-600 text-xl">notifications</i>
+                </button>
+                <button class="focus:outline-none">
+                    <i class="material-icons text-gray-600 text-2xl">account_circle</i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="flex">
+        <div id="sidebar"
+            class="fixed inset-y-0 left-0 z-20 w-64 bg-gray-900 text-white transform md:translate-x-0 transition-transform duration-300 ease-in-out mt-16 md:w-48">
+            <div class="pt-4">
+                <a href="index.html" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="material-icons">home</i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="forum.html" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="material-icons">bar_chart</i>
+                    <span>Forum</span>
+                </a>
+                <a href="reports.html" class="flex items-center space-x-2 py-3 px-4 bg-gray-700 transition duration-200 active-link">
+                    <i class="material-icons">insert_chart</i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="material-icons">settings</i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 p-6 mt-16 md:ml-48 transition-all duration-500 ease-in-out">
+            <!-- Header Section -->
+            <h1 class="text-3xl font-semibold text-gray-900">Detailed Reports</h1>
+            <p class="mt-2 text-gray-600">Comprehensive analysis of your social media metrics.</p>
+
+            <!-- Reports Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <!-- Engagement Report Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-xl font-semibold text-gray-800">Engagement Report</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="engagementReportChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Follower Growth Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-xl font-semibold text-gray-800">Follower Growth</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="followerGrowthChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Performance Summary Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-xl font-semibold text-gray-800">Performance Summary</h3>
+                    </div>
+                    <div class="mt-4">
+                        <ul class="summary-list text-gray-600">
+                            <li><span class="font-semibold">Total Posts:</span> 150</li>
+                            <li><span class="font-semibold">Average Likes:</span> 230</li>
+                            <li><span class="font-semibold">Top Performing Post:</span> 500 Likes</li>
+                            <li><span class="font-semibold">Average Shares:</span> 120</li>
+                            <li><span class="font-semibold">Total Comments:</span> 90</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Top Posts Card -->
+                <div class="card top-posts">
+                    <div class="card-header">
+                        <h3 class="text-xl font-semibold text-gray-800">Top Posts</h3>
+                    </div>
+                    <div class="mt-4">
+                        <ul>
+                            <!-- Top Post 1 -->
+                            <li class="post-item">
+                                <i class="material-icons">photo_camera</i>
+                                <div class="details">
+                                    <h4 class="text-gray-800 font-semibold">Amazing Post 1</h4>
+                                    <p class="text-gray-600">Likes: 700 | Shares: 250</p>
+                                </div>
+                            </li>
+                            <!-- Top Post 2 -->
+                            <li class="post-item">
+                                <i class="material-icons">video_library</i>
+                                <div class="details">
+                                    <h4 class="text-gray-800 font-semibold">Incredible Post 2</h4>
+                                    <p class="text-gray-600">Likes: 650 | Shares: 220</p>
+                                </div>
+                            </li>
+                            <!-- Top Post 3 -->
+                            <li class="post-item">
+                                <i class="material-icons">campaign</i>
+                                <div class="details">
+                                    <h4 class="text-gray-800 font-semibold">Fantastic Post 3</h4>
+                                    <p class="text-gray-600">Likes: 600 | Shares: 200</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- User Demographics Card -->
+                <div class="card additional-charts">
+                    <div class="card-header">
+                        <h3 class="chart-title">User Demographics</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="userDemographicsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Content Performance Card -->
+                <div class="card additional-charts">
+                    <div class="card-header">
+                        <h3 class="chart-title">Content Performance</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="contentPerformanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.0/dist/chart.min.js"></script>
+    <script>
+        // Engagement Report Chart
+        const ctxEngagementReport = document.getElementById('engagementReportChart').getContext('2d');
+        const engagementReportChart = new Chart(ctxEngagementReport, {
+            type: 'bar',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Engagement',
+                    data: [250, 300, 400, 350],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Follower Growth Chart
+        const ctxFollowerGrowth = document.getElementById('followerGrowthChart').getContext('2d');
+        const followerGrowthChart = new Chart(ctxFollowerGrowth, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Followers',
+                    data: [1200, 1300, 1400, 1500, 1600, 1700],
+                    fill: false,
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // User Demographics Chart
+        const ctxUserDemographics = document.getElementById('userDemographicsChart').getContext('2d');
+        const userDemographicsChart = new Chart(ctxUserDemographics, {
+            type: 'pie',
+            data: {
+                labels: ['18-24', '25-34', '35-44', '45-54', '55+'],
+                datasets: [{
+                    label: 'Age Distribution',
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
+        });
+
+        // Content Performance Chart
+        const ctxContentPerformance = document.getElementById('contentPerformanceChart').getContext('2d');
+        const contentPerformanceChart = new Chart(ctxContentPerformance, {
+            type: 'doughnut',
+            data: {
+                labels: ['Text Posts', 'Image Posts', 'Video Posts'],
+                datasets: [{
+                    label: 'Content Type Performance',
+                    data: [300, 450, 250],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
+        });
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('md:translate-x-0');
+            sidebar.classList.toggle('translate-x-[-100%]');
+        }
+    </script>
+</body>
+
+</html>

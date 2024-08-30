@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        .login-container h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 30px;
+            padding: 15px 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus {
+            border-color: #f093fb;
+            box-shadow: none;
+        }
+
+        .login-btn, .social-login-btn {
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn {
+            background-color: #f093fb;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #f5576c;
+        }
+
+        .social-login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .gmail-btn {
+            background-color: #ea4335;
+        }
+
+        .facebook-btn {
+            background-color: #3b5998;
+        }
+
+        .social-login-btn:hover {
+            opacity: 0.8;
+        }
+
+        .social-login-btn img {
+            margin-right: 10px;
+            width: 24px;
+        }
+
+        .comment {
+            font-size: 12px;
+            color: #888;
+            margin-top: -15px;
+            margin-bottom: 10px;
+            text-align: left;
+            display: block;
+        }
+
+        .background-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            z-index: 0;
+        }
+
+        .alert {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-effect"></div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <p class="text-center mb-4">Sign in with your Gmail credentials</p>
+
+        <!-- Gmail login button -->
+        <button class="social-login-btn gmail-btn" onclick="staticLogin('Gmail')">
+            <img src="./gmail.png" alt="Gmail Icon">
+            Sign in with Gmail
+        </button>
+
+        <!-- Facebook login button -->
+        <button class="social-login-btn facebook-btn" onclick="staticLogin('Facebook')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+            Sign in with Facebook
+        </button>
+
+        <!-- Email input field with comment -->
+        <div class="form-group">
+            <input type="email" id="email" class="form-control" placeholder="Email" required>
+            <div class="comment">Email - admin@gmail.com</div>
+        </div>
+
+        <!-- Password input field with comment -->
+        <div class="form-group">
+            <input type="password" id="password" class="form-control" placeholder="Password" required>
+            <div class="comment">Password - admin</div>
+        </div>
+
+        <!-- Sign-in button -->
+        <button class="login-btn" onclick="login()">Sign in</button>
+
+        <!-- Alert messages -->
+        <div id="alertSuccess" class="alert alert-success">Login successful! Redirecting...</div>
+        <div id="alertError" class="alert alert-danger">Invalid email or password. Please try again.</div>
+    </div>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var alertSuccess = document.getElementById("alertSuccess");
+            var alertError = document.getElementById("alertError");
+
+            // Reset alerts
+            alertSuccess.style.display = 'none';
+            alertError.style.display = 'none';
+
+            // Static login options
+            var validCredentials = [
+                { email: "admin@gmail.com", password: "admin" },
+                { email: "shivam@gmail.com", password: "shivam" },
+                { email: "manoj@gmail.com", password: "manoj" },
+                { email: "vaibhav@gmail.com", password: "vaibhav" },
+                { email: "shubham@gmail.com", password: "shubham" }
+            ];
+
+            // Check if the entered credentials match any of the valid credentials
+            var isValid = validCredentials.some(function (cred) {
+                return cred.email === email && cred.password === password;
+            });
+
+            if (isValid) {
+                alertSuccess.style.display = 'block';
+                setTimeout(function () {
+                    window.location.href = 'index.html'; // Redirect to your dashboard page
+                }, 2000);
+            } else {
+                alertError.style.display = 'block';
+            }
+        }
+
+        function staticLogin(platform) {
+            alert(platform + " login clicked!");
+            // Add your custom logic for static login here if needed
+        }
+    </script>
+</body>
+
+</html>
