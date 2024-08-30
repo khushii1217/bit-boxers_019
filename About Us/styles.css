@@ -1,0 +1,269 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 50px 0;
+    background-color:#111828 ;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 3rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+.section img {
+    width: 45%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section .text {
+    width: 50%;
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section .text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section .text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.section .text a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #111828;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.section .text a.btn:hover {
+    background-color:#111828;
+    transform: scale(1.05);
+}
+
+.section:nth-child(odd) img {
+    transform: translateX(-100px);
+}
+
+.section:nth-child(odd) .text {
+    transform: translateX(50px);
+}
+
+.section:nth-child(even) img {
+    transform: translateX(100px);
+}
+
+.section:nth-child(even) .text {
+    transform: translateX(-50px);
+}
+
+.section img.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section .text.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section video {
+    width: 45%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section video.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color:#111828;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons .icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+    transform: scale(1.2);
+    color:#111828 ;
+}
+
+
+.trusted-brands {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.trusted-brands h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px; /* Set a maximum width to contain the logos */
+    margin: 0 auto;
+}
+
+.brands-container img {
+    flex: 1 1 16%; /* Adjusts each logo to take up 1/6th of the row */
+    max-width: 100px; /* Optional: adjust the max-width to make logos fit well */
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.brands-container img:hover {
+    opacity: 1;
+}
+
+
+.quu{
+    margin: 0px 150px;
+}
+.sshh{
+    height: 300px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+h3{
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+p{
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+.d3{
+    height: 400px;
+    width: 0px;
+    border: 1px solid black;
+    display: inline-block;
+}
+.d4{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    width: 15%;
+    margin-top: -150px;
+}
+
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section img, .section video {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    .trusted-brands img {
+        flex: 1 1 30%; /* Adjust logo size for smaller screens */
+    }
+
+    .quu {
+        margin: 0 20px;
+    }
+}
+
