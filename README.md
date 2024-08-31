@@ -4,10 +4,11 @@
 <body>
     <div class="readme" style="font-weight:bold">
         Project Title : Bit-Boxers_019
-        Introduction - Media Hub is the social media analytics platform .
+        <p>Introduction - Media Hub is the social media analytics platform .
         Media Hub allows users to monitor and analyze their social media presence.The platform collects data from various social media channels and presents it in an organized and visually appealing manner.
 
 This is a responsive social media dashboard built using : HTML , CSS , and JavaScript.
+</p>
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
