@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Social Media Analytics Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Inline CSS for additional styling */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .active-link {
+            background-color: #4A5568;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-20 top-0 left-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleSidebar()" class="focus:outline-none md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <a href="index.html" class="text-xl font-bold text-gray-900">MEDIA-HUB</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <input type="text" placeholder="Search"
+                    class="px-4 py-2 border border-gray-300 rounded-full focus:outline-none">
+                <button class="focus:outline-none">
+                    <i class="fas fa-search text-gray-600"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index1.html" class="text-gray-600 hover:text-gray-900 login relative group">
+                    Logout
+                    <span
+                        class="absolute left-1/2 transform -translate-x-1/4 -translate-y-full bg-red-800 text-white text-xs rounded py-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        logout?
+                    </span>
+                </a>
+
+                <button class="focus:outline-none">
+                    <i class="fas fa-bell text-gray-600 text-xl"></i>
+                </button>
+                <button class="focus:outline-none">
+                    <i class="fas fa-user-circle text-gray-600 text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="flex">
+        <div id="sidebar"
+            class="fixed inset-y-0 left-0 z-20 w-64 bg-gray-900 text-white transform md:translate-x-0 transition-transform duration-300 ease-in-out mt-16 md:w-48">
+            <div class="pt-4">
+                <a href="index.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="forum.html"
+                    class="flex items-center space-x-2 py-3 px-4 bg-gray-700 transition duration-200 active-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <!-- Inside Sidebar Section -->
+                <a href="reports.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+
+                </a>
+                <a href="#" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 p-6 mt-16 md:ml-48 transition-all duration-500 ease-in-out">
+            <!-- Header Section -->
+            <h1 class="text-3xl font-semibold text-gray-900">Forum Analytics</h1>
+            <p class="mt-2 text-gray-600">Discussion insights and user engagement data.</p>
+
+            <!-- Forum Chart Section -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800">Posts Engagement Over Time</h2>
+                <canvas id="forumEngagementChart" class="mt-4"></canvas>
+            </div>
+
+            <!-- Additional Analytics Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <!-- Engagement by Post Type Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Engagement by Post Type</h3>
+                    <canvas id="engagementByPostType" class="mt-4"></canvas>
+                </div>
+
+                <!-- Top Posts Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Top Posts</h3>
+                    <ul class="mt-4">
+                        <li class="border-b border-gray-200 py-2">Post 1: 500 Likes</li>
+                        <li class="border-b border-gray-200 py-2">Post 2: 350 Likes</li>
+                        <li class="border-b border-gray-200 py-2">Post 3: 275 Likes</li>
+                    </ul>
+                </div>
+
+                <!-- User Engagement Trends Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-gray-800">User Engagement Trends</h3>
+                    <canvas id="userEngagementTrends" class="mt-4"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.0/dist/chart.min.js"></script>
+    <script>
+        // Inline JavaScript to render the charts
+        const ctxEngagement = document.getElementById('forumEngagementChart').getContext('2d');
+        const forumEngagementChart = new Chart(ctxEngagement, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Posts Engagement',
+                    data: [120, 190, 300, 500, 200, 300, 450],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctxPostType = document.getElementById('engagementByPostType').getContext('2d');
+        const engagementByPostTypeChart = new Chart(ctxPostType, {
+            type: 'doughnut',
+            data: {
+                labels: ['Text', 'Image', 'Video', 'Link'],
+                datasets: [{
+                    data: [40, 20, 30, 10],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                    hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+        const ctxUserEngagement = document.getElementById('userEngagementTrends').getContext('2d');
+        const userEngagementTrendsChart = new Chart(ctxUserEngagement, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'User Engagement',
+                    data: [150, 200, 350, 400, 250, 320, 500],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+/* Custom Styles */
+
+.active-link {
+    background-color: #4A5568; /* Darker shade */
+}
+
+.img-hover:hover {
+    color: #1A202C; /* Darker shade */
+}
+
+/* Smooth transitions for hover effects */
+.transition-transform {
+    transition: transform 0.3s ease-in-out;
+}
+
+.rounded-md {
+    border-radius: 0.375rem; /* Rounded borders for the logo */
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow for better visibility */
+}
+
+.border {
+    border-width: 1px;
+}
+
+.border-gray-300 {
+    border-color: #D1D5DB; /* Light gray border */
+}
+
+
+        /* Basic styling for the theme toggle switch */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #theme-switch {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background: #ccc;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        label:after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #theme-switch:checked + label {
+            background: #4f46e5;
+        }
+
+        #theme-switch:checked + label:after {
+            transform: translateX(20px);
+        }
+    
+
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Analytics Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+
+<body class="bg-gray-100 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-20 top-0 left-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleSidebar()" class="focus:outline-none md:hidden">
+                    <i class="fas fa-bars text-2xl text-gray-900 dark:text-white"></i>
+                </button>
+                <a href="#" class="text-xl font-bold text-gray-900 dark:text-white">MEDIA-HUB</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <input type="text" placeholder="Search"
+                    class="px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-full focus:outline-none">
+            </div>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" />
+                <label for="theme-switch"></label>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="index1.html"
+                    class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-300 login relative group">
+                    Logout
+                    <span
+                        class="absolute left-1/2 transform -translate-x-1/4 -translate-y-full bg-red-800 text-white text-xs rounded py-1 px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        logout?
+                    </span>
+                </a>
+
+                <button class="focus:outline-none">
+                    <i class="fas fa-bell text-gray-600 dark:text-white text-xl img-hover"></i>
+                </button>
+                <button class="focus:outline-none">
+                    <i class="fas fa-user-circle text-gray-600 dark:text-white text-2xl img-hover"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="flex">
+        <div id="sidebar"
+            class="fixed flex justify-between flex-col inset-y-0 left-0 z-20 w-64 bg-gray-900 text-white transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out mt-16 md:w-48">
+            <div class="pt-4">
+                <a href="index.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 bg-gray-700 active-link transition duration-200">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="./forum.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="./reports.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="./about.html"
+                    class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-comments"></i>
+                    <span>About Us</span>
+                </a>
+            </div>
+            <div>
+                <a href="#" class="flex items-center space-x-2 py-3 px-4 hover:bg-gray-700 transition duration-200">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 p-6 mt-16 md:ml-48 transition-all duration-500 ease-in-out">
+            <!-- Header Section -->
+            <h1 class="text-3xl font-semibold text-gray-900 dark:text-white animate-fade-in">Dashboard</h1>
+            <p class="mt-2 text-gray-600 dark:text-gray-300 animate-slide-in-left">Overview of your social media
+                analytics.</p>
+
+            <!-- Cards Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 card-container">
+                <div
+                    class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-800 hover:text-white transition-colors duration-300 transform hover:scale-105 group">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Total Followers</h2>
+                    <p class="text-2xl font-bold dark:text-white">120K</p>
+                    <p class="text-sm mt-1 group-hover:text-green-400">+1.5% from last week</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-800 hover:text-white transition-colors duration-300 transform hover:scale-105 group">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Engagement Rate</h2>
+                    <p class="text-2xl font-bold dark:text-white">8.9%</p>
+                    <p class="text-sm mt-1 group-hover:text-green-400">+2.3% from last week</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-800 hover:text-white transition-colors duration-300 transform hover:scale-105 group">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Total Posts</h2>
+                    <p class="text-2xl font-bold dark:text-white">350</p>
+                    <p class="text-sm mt-1 group-hover:text-red-400">-4 posts from last week</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-800 hover:text-white transition-colors duration-300 transform hover:scale-105 group">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">New Messages</h2>
+                    <p class="text-2xl font-bold dark:text-white">45</p>
+                    <p class="text-sm mt-1 group-hover:text-green-400">+10 messages from last week</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">Follower Growth</h2>
+                <canvas id="followerGrowthChart" class="mt-4"></canvas>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">Engagement Rate</h2>
+                <canvas id="engagementRateChart" class="mt-4"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.0/dist/chart.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Dark Mode Toggle Script
+        const themeSwitch = document.getElementById('theme-switch');
+        const body = document.body;
+
+        themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
+                body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Apply saved theme on load
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                themeSwitch.checked = true;
+                body.classList.add('dark');
+            }
+        });
+    </script>
+</body>
+
+</html>

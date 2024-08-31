@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md animate-fade-in">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-6">Login</h1>
+        <form action="#" method="post" class="mb-6">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Login</button>
+        </form>
+
+        <div class="flex flex-col gap-4">
+            <p class="text-gray-600 text-center">Or login with</p>
+            <div class="flex gap-4">
+                <a href="https://accounts.google.com/signin" class="flex items-center justify-center w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-gray-600 hover:bg-gray-100">
+                    <i class="fab fa-google"></i>
+                    <span class="ml-2">Google</span>
+                </a>
+                <a href="https://www.facebook.com/login" class="flex items-center justify-center w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-gray-600 hover:bg-gray-100">
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="ml-2">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
