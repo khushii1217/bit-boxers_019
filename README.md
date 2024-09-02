@@ -13,7 +13,7 @@ https://main--new-social-media-analytics.netlify.app/index1
 
 
 Directory Structure
-my-app/ ├─ frontend/ │ ├─ index.html ├─ forum.html  ├─ reports.html  ├─login.html ├─about.html ├─
+my-app/ ├─ frontend/ │ ├─ index.html ├─ forum.html  ├─ reports.html  ├─index1.html ├─about.html ├─
 
 ## Video Walkthrough of the project:
 Attached a video walkthough of our website - https://www.youtube.com/watch?v=G6xiDIrtoto
