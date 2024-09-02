@@ -1,7 +1,6 @@
-#
-Project Title: Bit-Boxers_019
+## Project Title: Bit-Boxers_019
 
-Introduction:
+## Introduction:
 
 A social media analytics platform allows users to monitor and analyze their social media presence.The platform collects data from various social media channels  and presents it in an organized and visually appealing manner.
 
