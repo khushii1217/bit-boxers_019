@@ -1,37 +1,43 @@
+#
+Project Title Bit-Boxers_019
+Introduction
+A social media analytics platform allows users to monitor and analyze their social media presence.The platform collects data from various social media channels  and presents it in an organized and visually appealing manner.
+
+Project Type
+Frontend
+
+Deplolyed App
+Frontend: 
+https://main--new-social-media-analytics.netlify.app/about
 
 
-    
-<body>
-    <div class="readme" style="font-weight:bold">
-        Project Title : Bit-Boxers_019
-        <p>Introduction - Media Hub is the social media analytics platform .
-        Media Hub allows users to monitor and analyze their social media presence.The platform collects data from various social media channels and presents it in an organized and visually appealing manner.
+Directory Structure
+my-app/ ├─ frontend/ │ ├─ index.html ├─ forum.html  ├─ reports.html  ├─login.html ├─about.html ├─
 
-This is a responsive social media dashboard built using : HTML , CSS , and JavaScript.
-</p>
+Video Walkthrough of the project
+Attach a very short video walkthough of our website - https://www.youtube.com/watch?v=G6xiDIrtoto
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Running the application](#run-the-application)
-- [Copyright and License](#copyright-and-license)
+Features
+List out the key features of your application.
 
-## Prerequisites
-
-Install the following prerequisites:
-
-* [Visual Studio Code](https://code.visualstudio.com/download) with the *Live Server* extension.
-
-[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) allows us to launch a local development server that enables a live reload of our project.
+Feature 1 -Meida Hub -To build this website we have use a combination of HTML , CSS and JavaScript .
 
 
-## Run the application
+Installation & Getting started
+step-1 ) clone the project using GitHub link step-2 ) git pull step-3 ) git fetch --all 
 
-To run the application, start the *Live Server* by clicking *Go Live* in the bottom right corner of the status bar in Visual Studio Code. This action will load the website in your default web browser. 
-## View the application
 
-Once the *Live Server* is up and running, go to http://127.0.0.1:5500/index.html to view the application.
+## Usage
+after cloning from github check run live server to see project in browser
 
-## Copyright and License
-    </div>
-</body>
-</html>
+
+Include screenshots as necessary.
+![image]([https://github.com/user-attachments/assets/4a00ff07-2543-4637-b99c-40c5a697e195](https://github.com/khushii1217/bit-boxers_019/blob/main/gmail.png))
+
+
+## Technology Stack
+List and provide a brief overview of the technologies used in the project.
+
+- HTML
+- CSS
+- Java Script
