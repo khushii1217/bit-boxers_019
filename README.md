@@ -15,7 +15,7 @@ Directory Structure
 my-app/ ├─ frontend/ │ ├─ index.html ├─ forum.html  ├─ reports.html  ├─login.html ├─about.html ├─
 
 Video Walkthrough of the project
-Attach a very short video walkthough of our website - https://www.youtube.com/watch?v=G6xiDIrtoto
+Attached a video walkthough of our website - https://www.youtube.com/watch?v=G6xiDIrtoto
 
 Features
 List out the key features of your application.
