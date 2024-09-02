@@ -19,27 +19,44 @@ my-app/ ├─ frontend/ │ ├─ index.html ├─ forum.html  ├─ reports
 Video Walkthrough of the project
 Attached a video walkthough of our website - https://www.youtube.com/watch?v=G6xiDIrtoto
 
-Features
-List out the key features of your application.
+Features:
+Media Hub typically includes various features that help track, analyze, and optimize social media performance.
 
-Feature 1 -Meida Hub -To build this website we have use a combination of HTML , CSS and JavaScript .
+1. Dashboard and Overview : Provides a comprehensive view of key metrics like total engagement, followers, and top-performing posts. It offers quick insights into overall performance.
+
+2. Engagement Tracking : Monitors likes, comments, shares, and other interactions to understand how users are engaging with content.
+
+3. Follower Analysis : Tracks follower growth over time, demographics, and engagement patterns to understand the audience better.
+
+4. Post Performance Analysis : Analyzes individual posts to determine which content types, times, and formats drive the most engagement.
+
+5. Competitor Analysis : Allows benchmarking against competitors to see how your content performs in comparison.
+
+6. Reports and Data Export : Generates customizable reports that can be shared with stakeholders, including graphs and insights on social media performance.
+
+7. Audience Segmentation : Breaks down the audience into segments based on demographics, behavior, or interests for targeted content strategies.
+
+8. Performance Summaries : Provides detailed summaries of content performance, including best times to post, top-performing content, and areas for improvement.
+
+9. Integration with Multiple Platforms : Supports integration with various social media channels (like Facebook, Twitter, Instagram) for centralized data analysis.
+
+These features help businesses and individuals optimize their social media presence by providing actionable insights and data-driven strategies.
 
 
-Installation & Getting started
+## Installation & Getting started:
 step-1 ) clone the project using GitHub link step-2 ) git pull step-3 ) git fetch --all 
-
 
 ## Usage
 after cloning from github check run live server to see project in browser
 
 
-Include screenshots as necessary.
-![image]([https://github.com/user-attachments/assets/4a00ff07-2543-4637-b99c-40c5a697e195](https://github.com/khushii1217/bit-boxers_019/blob/main/gmail.png))
+## Credentials :
+login id- admin@gmail.com
+password- admin
 
 
 ## Technology Stack
-List and provide a brief overview of the technologies used in the project.
-
+List and provide technologies used in the project.
 - HTML
 - CSS
 - Java Script
