@@ -10,7 +10,7 @@ Frontend
 
 Deplolyed App
 Frontend: 
-https://main--new-social-media-analytics.netlify.app/about
+https://main--new-social-media-analytics.netlify.app/index.html
 
 
 Directory Structure
